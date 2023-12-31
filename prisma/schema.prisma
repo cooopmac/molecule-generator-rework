@@ -13,5 +13,28 @@ datasource db {
 model Molecule {
   id        Int      @id @default(autoincrement())
   name      String
+  science   String
+  atomCount Int
+  bondCount Int
+  atoms     Atom[]
+  bonds     Bond[]
   createdAt DateTime @default(now())
+}
+
+model Atom {
+  id         Int       @id @default(autoincrement())
+  x          Float
+  y          Float
+  z          Float
+  element    String
+  Molecule   Molecule? @relation(fields: [moleculeId], references: [id])
+  moleculeId Int?
+}
+
+model Bond {
+  id         Int       @id @default(autoincrement())
+  a1         Int
+  a2         Int
+  Molecule   Molecule? @relation(fields: [moleculeId], references: [id])
+  moleculeId Int?
 }
