@@ -51,6 +51,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  navigator;
   const molecules = await prisma.molecule.findMany();
   return NextResponse.json(molecules, { status: 201 });
 }

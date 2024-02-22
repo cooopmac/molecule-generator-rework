@@ -15,7 +15,7 @@ const MoleculesPage = () => {
   useEffect(() => {
     const fetchMolecules = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/molecules"); // Fetch molecules using your function
+        const response = await axios.get("http://localhost:3000/api/molecules");
         setMolecules(response.data); // Set molecules in state
       } catch (error) {
         console.error("Failed to load molecules:", error);
